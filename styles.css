@@ -38,3 +38,16 @@ kbd {
   display: block;
   font-size: 40px;
 }
+
+.playing {
+  transform: scale(1.1);
+  border-color: blue;
+  box-shadow: 0 0 10px blue;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: blue;
+}

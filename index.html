@@ -9,7 +9,7 @@
   <body>
     
     <div class="keys">
-      <div data-key="68" class="key">
+      <div data-key="65" class="key">
         <kbd>A</kbd>
         <span class="sound">clap</span>
       </div>
@@ -47,18 +47,36 @@
       </div>
     </div> <!-- class "keys" -->
     
-    <audio data-key="65" src="sounds/Alligator1.wav"></audio>
-    <audio data-key="83" src="sounds/Alligator2.wav"></audio>
-    <audio data-key="68" src="sounds/Dragon1.wav"></audio>
-    <audio data-key="70" src="sounds/Dragon2.wav"></audio>
-    <audio data-key="71" src="sounds/Godzilla.wav"></audio>
-    <audio data-key="72" src="sounds/pterodactyl.wav"></audio>
-    <audio data-key="74" src="sounds/Raptor.wav"></audio>
-    <audio data-key="75" src="sounds/Tyrannosaurus.wav"></audio>
-    <audio data-key="76" src="sounds/Velociraptor.wav"></audio>
+    <audio data-key="65" src="assets/sounds/Alligator1.wav"></audio>
+    <audio data-key="83" src="assets/sounds/Alligator2.wav"></audio>
+    <audio data-key="68" src="assets/sounds/Dragon1.wav"></audio>
+    <audio data-key="70" src="assets/sounds/Dragon2.wav"></audio>
+    <audio data-key="71" src="assets/sounds/Godzilla.wav"></audio>
+    <audio data-key="72" src="assets/sounds/pterodactyl.wav"></audio>
+    <audio data-key="74" src="assets/sounds/Raptor.wav"></audio>
+    <audio data-key="75" src="assets/sounds/Tyrannosaurus.wav"></audio>
+    <audio data-key="76" src="assets/sounds/Velociraptor.wav"></audio>
 
     <script>
-        
+      function removeTransition(e) {
+        if (e.propertyName !== 'transform') return;
+        e.target.classList.remove('playing');
+
+      } 
+      function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+
+        key.classList.add('playing');
+        audio.currentTime = 0;
+        audio.play();
+
+      }
+
+      const keys = Array.from(document.querySelectorAll('.key'));
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+      window.addEventListener('keydown', playSound);
     </script>
   </body>
 </html>

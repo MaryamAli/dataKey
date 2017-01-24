@@ -1,7 +1,6 @@
 html {
   font-size: 10px;
   background:url("./assets/images/dinosaur.jpg") bottom center;
-
   background-size: cover;
 }
 
@@ -10,6 +9,21 @@ body, html {
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   color: white;
+}
+
+.fileLinks {
+  padding-right: 10px;
+
+}
+
+.fileLinks a {
+  text-decoration: none;
+  color: #E8131A;
+}
+
+.fileLinks a:hover {
+  color: #EBC373;
+  text-decoration: none;
 }
 
 .keys {
